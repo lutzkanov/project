@@ -33,6 +33,8 @@ jobs:
 
   linters:
     runs-on: ubuntu-latest
+    needs: gitleaks  # Ensure gitleaks job runs first
+
     steps:
       - name: Checkout repository
         uses: actions/checkout@v2
@@ -41,8 +43,14 @@ jobs:
         run: |
           npm install
 
-      - name: Run linters
+      - name: Run HTML linter
         run: |
-          npx htmlhint quizz-app/index.html && \
-          npx stylelint quizz-app/style.css && \
-          npx eslint quizz-app/**/*.js
+          npx htmlhint quizz-app/index.html
+
+      - name: Run CSS linter
+        run: |
+          npx stylelint quizz-app/style.css
+
+      - name: Run JavaScript linter
+        run: |
+          npx eslint "quizz-app/**/*.js"
