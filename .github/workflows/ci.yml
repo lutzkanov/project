@@ -31,9 +31,15 @@ jobs:
             echo "Secrets detected!"
             exit 1
           fi
+  linters:
+    runs-on: ubuntu-latest
+    steps:
 
       - name: Install dependencies
-        run: npm install
+        run: | 
+          npm install
+          npm install --save-dev stylelint-config-standard
+
 
       - name: Run linters
         run: npm run lint
