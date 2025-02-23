@@ -1,0 +1,35 @@
+name: CI Pipeline
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  gitleaks:
+    runs-on: ubuntu-latest
+
+    steps:
+      # Check out the repository
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      # Run Gitleaks scan using Docker container
+      - name: Run Gitleaks scan
+        run: |
+          docker run --rm \
+            -v $(pwd):/repo \
+            --workdir /repo \
+            --entrypoint gitleaks \
+            zricethezav/gitleaks:latest detect --redact --verbose
+
+      # Optionally, you can fail the action if secrets are detected
+      - name: Fail if secrets detected
+        run: |
+          if grep -q "Secret detected" gitleaks-report.json; then
+            echo "Secrets detected!"
+            exit 1
+          fi
