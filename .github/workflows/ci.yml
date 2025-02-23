@@ -13,11 +13,10 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      # Check out the repository
+
       - name: Checkout repository
         uses: actions/checkout@v2
 
-      # Run Gitleaks scan using Docker container
       - name: Run Gitleaks scan
         run: |
           docker run --rm \
@@ -26,10 +25,15 @@ jobs:
             --entrypoint gitleaks \
             zricethezav/gitleaks:latest detect . -v --redact --report-format json --report-path /repo/gitleaks-report.json
 
-      # Optionally, you can fail the action if secrets are detected
       - name: Fail if secrets detected
         run: |
           if grep -q "Secret detected" gitleaks-report.json; then
             echo "Secrets detected!"
             exit 1
           fi
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Run linters
+        run: npm run lint

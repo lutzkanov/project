@@ -1,0 +1,13 @@
+{
+    "name": "static-website",
+    "version": "1.0.0",
+    "scripts": {
+      "lint": "htmlhint quizz-app/index.html && stylelint quizz-app/style.css && eslint quizz-app/script.js"
+    },
+    "devDependencies": {
+      "htmlhint": "^0.14.1",
+      "stylelint": "^13.10.0",
+      "eslint": "^7.24.0"
+    }
+  }
+  
