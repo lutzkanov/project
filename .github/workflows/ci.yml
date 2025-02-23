@@ -1,46 +1,70 @@
-name: CI Pipeline
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;400&display=swap');
 
-on:
-  push:
-    branches:
-      - dev
-  pull_request:
-    branches:
-      - dev
+* {
+  box-sizing: border-box;
+}
 
-jobs:
-  gitleaks:
-    runs-on: ubuntu-latest
+body {
+  background-color: rgb(184, 198, 219);  /* Modern color function notation */
+  background-image: linear-gradient(315deg, rgb(184, 198, 219) 0%, rgb(245, 247, 250) 100%);  /* Modern color function notation */
+  font-family: Poppins, sans-serif;  /* Removed quotes around Poppins */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  overflow: hidden;
+  margin: 0;
+}
 
-    steps:
+.quiz-container {
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 0 10px 2px rgba(100, 100, 100, 0.1);
+  width: 600px;
+  overflow: hidden;
+}
 
-      - name: Checkout repository
-        uses: actions/checkout@v2
+.quiz-header {
+  padding: 4rem;
+}
 
-      - name: Run Gitleaks scan
-        run: |
-          docker run --rm \
-            -v $(pwd):/repo \
-            --workdir /repo \
-            --entrypoint gitleaks \
-            zricethezav/gitleaks:latest detect . -v --redact --report-format json --report-path /repo/gitleaks-report.json
+h2 {
+  padding: 1rem;
+  text-align: center;
+  margin: 0;
+}
 
-      - name: Fail if secrets detected
-        run: |
-          if grep -q "Secret detected" gitleaks-report.json; then
-            echo "Secrets detected!"
-            exit 1
-          fi
-  linters:
-    runs-on: ubuntu-latest
-    steps:
+ul {
+  list-style-type: none;
+  padding: 0;
+}
 
-      - name: Checkout repository
-        uses: actions/checkout@v2
+ul li {
+  font-size: 1.2rem;
+  margin: 1rem 0;
+}
 
-      - name: Install dependencies
-        run: | 
-          npm install
+ul li label {
+  cursor: pointer;
+}
 
-      - name: Run linters
-        run: npm run lint -- --fix
+button {
+  background-color: rgb(142, 68, 173);  /* Modern color function notation */
+  color: #fff;
+  border: none;
+  display: block;
+  width: 100%;
+  cursor: pointer;
+  font-size: 1.1rem;
+  font-family: inherit;
+  padding: 1.3rem;
+}
+
+button:hover {
+  background-color: rgb(115, 45, 145);  /* Modern color function notation */
+}
+
+button:focus {
+  outline: none;
+  background-color: rgb(94, 51, 112);  /* Modern color function notation */
+}

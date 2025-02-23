@@ -4,7 +4,7 @@
     "font-family-name-quotes": ["always-where-recommended", {
       "ignore": ["stylelint-processor-styled-components"]
     }],
-    "color-function-notation": "modern",
-    "alpha-value-notation": "percentage"
+    "color-function-notation": null,
+    "alpha-value-notation": null
   }
 }

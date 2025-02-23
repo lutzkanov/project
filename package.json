@@ -5,7 +5,7 @@
         "lint": "htmlhint quizz-app/index.html && stylelint quizz-app/style.css && eslint quizz-app/script.js"
     },
     "devDependencies": {
-        "eslint": "^7.24.0",
+        "eslint": "^7.32.0",
         "htmlhint": "^0.14.1",
         "stylelint": "^16.14.1",
         "stylelint-config-standard": "^37.0.0"
