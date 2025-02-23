@@ -24,7 +24,7 @@ jobs:
             -v $(pwd):/repo \
             --workdir /repo \
             --entrypoint gitleaks \
-            zricethezav/gitleaks:latest detect . -v --redact --report /repo/gitleaks-report.json
+            zricethezav/gitleaks:latest detect . -v --redact --report-format json --report-path /repo/gitleaks-report.json
 
       # Optionally, you can fail the action if secrets are detected
       - name: Fail if secrets detected
