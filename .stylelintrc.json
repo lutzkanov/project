@@ -1,9 +1,11 @@
 {
-    "extends": "stylelint-config-standard",
-    "rules": {
-      "color-no-invalid-hex": true,
-      "block-no-empty": true,
-      "unit-whitelist": ["em", "rem", "%", "s"]
-    }
+  "extends": "stylelint-config-standard",
+  "rules": {
+    "unit-whitelist": null,
+    "font-family-name-quotes": ["always-where-recommended", {
+      "ignore": ["stylelint-processor-styled-components"]
+    }],
+    "color-function-notation": "modern",
+    "alpha-value-notation": "percentage"
   }
-  
+}
