@@ -2,7 +2,7 @@
     "name": "static-website",
     "version": "1.0.0",
     "scripts": {
-        "lint": "htmlhint quizz-app/index.html && stylelint quizz-app/style.css && eslint quizz-app/script.js --fix"
+        "lint": "htmlhint quizz-app/index.html && stylelint quizz-app/style.css && eslint quizz-app/script.js"
     },
     "devDependencies": {
         "eslint": "^7.24.0",
