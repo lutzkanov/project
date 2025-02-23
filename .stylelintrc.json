@@ -1,7 +1,6 @@
 {
   "extends": "stylelint-config-standard",
   "rules": {
-    "unit-whitelist": null,
     "font-family-name-quotes": ["always-where-recommended", {
       "ignore": ["stylelint-processor-styled-components"]
     }],
