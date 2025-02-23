@@ -2,13 +2,12 @@
     "name": "static-website",
     "version": "1.0.0",
     "scripts": {
-      "lint": "htmlhint quizz-app/index.html && stylelint quizz-app/style.css && eslint quizz-app/script.js"
+        "lint": "htmlhint quizz-app/index.html && stylelint quizz-app/style.css && eslint quizz-app/script.js --fix"
     },
     "devDependencies": {
-      "htmlhint": "^0.14.1",
-      "stylelint": "^16.13.0",
-      "stylelint-config-standard": "^37.0.0",
-      "eslint": "^7.24.0"
+        "eslint": "^7.24.0",
+        "htmlhint": "^0.14.1",
+        "stylelint": "^16.14.1",
+        "stylelint-config-standard": "^37.0.0"
     }
-  }
-  
+}
