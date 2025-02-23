@@ -3,10 +3,10 @@ name: CI Pipeline
 on:
   push:
     branches:
-      - main
+      - dev
   pull_request:
     branches:
-      - main
+      - dev
 
 jobs:
   gitleaks:
@@ -24,7 +24,7 @@ jobs:
             -v $(pwd):/repo \
             --workdir /repo \
             --entrypoint gitleaks \
-            zricethezav/gitleaks:latest detect --redact --verbose
+            zricethezav/gitleaks:latest detect . -v --redact --report /repo/gitleaks-report.json
 
       # Optionally, you can fail the action if secrets are detected
       - name: Fail if secrets detected
