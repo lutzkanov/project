@@ -16,6 +16,6 @@ spec:
     spec:
       containers:
       - name: quizz-app
-        image: lutzkan/quizz-app:latest
+        image: lutzkan/quizz-app:13498721236
         ports:
         - containerPort: 80
