@@ -2,13 +2,16 @@
     "name": "static-website",
     "version": "1.0.0",
     "scripts": {
-        "lint": "htmlhint quizz-app/index.html && stylelint quizz-app/style.css && eslint quizz-app/script.js"
+      "lint": "htmlhint quizz-app/index.html && stylelint quizz-app/style.css && eslint quizz-app/script.js",
+      "snyk-test": "snyk test",  
+      "snyk-monitor": "snyk monitor" 
     },
     "devDependencies": {
-        "eslint": "^7.32.0",
-        "htmlhint": "^0.14.1",
-        "stylelint": "^16.14.1",
-        "stylelint-config-standard": "^37.0.0",
-        "snyk": "^latest"
+      "eslint": "^7.32.0",
+      "htmlhint": "^0.14.1",
+      "stylelint": "^16.14.1",
+      "stylelint-config-standard": "^37.0.0",
+      "snyk": "^1.1000.0"  
     }
-}
+  }
+  
